@@ -1,0 +1,72 @@
+// Clase NCliente - Botão Salvar
+ 
+ private void salvaActionPerformed(java.awt.event.ActionEvent evt) {                                      
+
+try{
+ 
+ PreparedStatment pst = conectabanco.conn.preparedStatment("insert into estados(nome,tel,end,email)values(?,?,?,?)");//passagem do sql para inserção
+            pst.setString(1,jTextFieldnome.getText());//passagem dos parametros
+            pst.setString(2,jTextFieldtel.getText());
+            pst.setString(3,jTextFieldend.getText());
+            pst.setString(4,jTextFieldemail.getText());
+            pst.executeUpdate();//executa a inserçaõ
+            JOptionPane.showMessageDialog(rootPane, "Salvo com sucesso");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Erro na inserção \n Erro:" + ex);
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------            
+//Classe NPeca - Botão Salvar
+private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {   
+
+    try{
+            PreparedStatment pst = conectabanco.conn.prepareStatement("insert into estados(nome,nCat,descricao)values(?,?,?)"); //passagem do sql para inserção")
+                pst.setString(1,jTextFieldnome.getText());
+                pst.setString(2,jTextFieldnCat.getText());
+                pst.setString(3,jTextAreadescricao.getText());
+                pst.execute();
+            JOptionPane.showMessageDialog(rootPane, "Alterado com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Erro na inserção \n Erro:" + ex);
+        }
+
+    }                    
+----------------------------------------------------------------------------------------------------------------------------------------------------------            
+//Classe Serviços - Botão Salvar
+private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        try{
+            PreparedStatement pst = conectabanco.conn.prepareStatement("insert into estados(nome,data,valor,tipo)values(?,?,?,?)");
+                pst.setString(1,jTextFieldnome.getText());
+                pst.setString(2,jTextFielddata.getText());
+                pst.setString(3,jTextFieldtipo.getText());
+                pst.setString(4,jTextFieldvalor.getText());
+                pst.execute();
+            JOptionPane.showMessageDialog(rootPane, "Alterado com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Erro na Inserção \n Erro:" + ex);
+        }
+
+        
+    }                                      
+    
+    
+//Classe NVenda - Botão Salvar    
+    
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        try{
+            PreparedStatement pst = conectabanco.conn.prepareStatement("insert into estados(Cproduto,JTextField5,recebido,total,troco)values(?,?,?,?,?)");
+                pst.setString(1,jTextFieldCproduto.getText());
+                pst.setString(2,jTextFieldJTextField5.getText());
+                pst.setString(3,jTextFieldrecebido.getText());
+                pst.setString(4,JTextFieldtroco.getText());
+                pst.setString(5,jTextFieldvalor.getText());
+                pst.execute();
+            JOptionPane.showMessageDialog(rootPane, "Alterado com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Erro na Inserção \n Erro:" + ex);
+        }
+
+        
+    }                                        
+        
