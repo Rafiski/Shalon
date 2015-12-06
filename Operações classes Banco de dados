@@ -1,27 +1,39 @@
 // Clase NCliente - Botão Salvar
  
+ ConexaoBanco conec = new ConexaoBanco();
+    
+ public NPeca() {
+        initComponents();
+    }
+ 
  private void salvaActionPerformed(java.awt.event.ActionEvent evt) {                                      
 
 try{
  
- PreparedStatment pst = conectabanco.conn.preparedStatment("insert into estados(nome,tel,end,email)values(?,?,?,?)");//passagem do sql para inserção
-            pst.setString(1,jTextFieldnome.getText());//passagem dos parametros
-            pst.setString(2,jTextFieldtel.getText());
-            pst.setString(3,jTextFieldend.getText());
-            pst.setString(4,jTextFieldemail.getText());
+ PreparedStatment pst = conec.conn.preparedStatment("insert into estados(nome,tel,end,email)values(?,?,?,?)");//passagem do sql para inserção
+            pst.setString(1,getText());//passagem dos parametros
+            pst.setString(2,tel.getText());
+            pst.setString(3,end.getText());
+            pst.setString(4,email.getText());
             pst.executeUpdate();//executa a inserçaõ
             JOptionPane.showMessageDialog(rootPane, "Salvo com sucesso");
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(rootPane, "Erro na inserção \n Erro:" + ex);
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------            
 //Classe NPeca - Botão Salvar
+
+ ConexaoBanco conec = new ConexaoBanco();
+
+public NPeca() {
+        initComponents();
+    }
 private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {   
 
     try{
-            PreparedStatment pst = conectabanco.conn.prepareStatement("insert into estados(nome,nCat,descricao)values(?,?,?)"); //passagem do sql para inserção")
-                pst.setString(1,jTextFieldnome.getText());
-                pst.setString(2,jTextFieldnCat.getText());
-                pst.setString(3,jTextAreadescricao.getText());
+            PreparedStatment pst = conec.conn.prepareStatement("insert into estados(nome,nCat,descricao)values(?,?,?)"); //passagem do sql para inserção")
+                pst.setString(1,nome.getText());
+                pst.setString(2,nCat.getText());
+                pst.setString(3,descricao.getText());
                 pst.execute();
             JOptionPane.showMessageDialog(rootPane, "Alterado com sucesso!");
         } catch (SQLException ex) {
@@ -31,14 +43,22 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
     }                    
 ----------------------------------------------------------------------------------------------------------------------------------------------------------            
 //Classe Serviços - Botão Salvar
+
+ ConexaoBanco conec = new ConexaoBanco();
+
+public Serviços() {
+        this.setLocationRelativeTo(null);
+        initComponents();
+
+
 private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
         try{
-            PreparedStatement pst = conectabanco.conn.prepareStatement("insert into estados(nome,data,valor,tipo)values(?,?,?,?)");
-                pst.setString(1,jTextFieldnome.getText());
-                pst.setString(2,jTextFielddata.getText());
-                pst.setString(3,jTextFieldtipo.getText());
-                pst.setString(4,jTextFieldvalor.getText());
+            PreparedStatement pst = conec.conn.prepareStatement("insert into estados(nome,data,valor,tipo)values(?,?,?,?)");
+                pst.setString(1,nome.getText());
+                pst.setString(2,data.getText());
+                pst.setString(3,tipo.getText());
+                pst.setString(4,valor.getText());
                 pst.execute();
             JOptionPane.showMessageDialog(rootPane, "Alterado com sucesso!");
         } catch (SQLException ex) {
@@ -51,16 +71,22 @@ private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
     
 //Classe NVenda - Botão Salvar    
     
+     ConexaoBanco conec = new ConexaoBanco();
     
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    public NVenda() {
+        initComponents();
+    }
+    
+    private void concluirCompraActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    
         // TODO add your handling code here:
         try{
-            PreparedStatement pst = conectabanco.conn.prepareStatement("insert into estados(Cproduto,JTextField5,recebido,total,troco)values(?,?,?,?,?)");
-                pst.setString(1,jTextFieldCproduto.getText());
-                pst.setString(2,jTextFieldJTextField5.getText());
-                pst.setString(3,jTextFieldrecebido.getText());
-                pst.setString(4,JTextFieldtroco.getText());
-                pst.setString(5,jTextFieldvalor.getText());
+            PreparedStatement pst = conec.conn.prepareStatement("insert into estados(Cproduto,recebido,total,troco)values(?,?,?,?)");
+                pst.setString(1,Cproduto.getText());
+                pst.setString(2,descricaoProduto.getText());
+                pst.setString(3,total.getText());
+                pst.setString(4,recebido.getText());
+                pst.setString(5,troco.getText());
                 pst.execute();
             JOptionPane.showMessageDialog(rootPane, "Alterado com sucesso!");
         } catch (SQLException ex) {
